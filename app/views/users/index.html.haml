@@ -1,0 +1,15 @@
+- provide(:title, 'User Index')
+= will_paginate @users
+%h1 Index of Users
+
+%table{:style => "width:500px"}/
+%thead/
+%tr
+  %th{:style => "text-align:right;"} Name
+  %th{:style => "text-align:right;"} email
+- @users.each do |user|
+
+  %tr
+    %td{:style => "text-align:right;"}= link_to user.name, user
+    %td{:style => "text-align:right;"}= user.email
+    %td{:style => "text-align:right;"}= admin_mark(user)

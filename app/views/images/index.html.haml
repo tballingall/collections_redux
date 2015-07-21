@@ -1,0 +1,8 @@
+%h2 Image Review
+= will_paginate @images
+
+-@images.order(:year).each do |image|
+  = div_for(image) do
+    = image_tag image.thumb_url
+    = image.year
+    = link_to image.name, image

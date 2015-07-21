@@ -1,0 +1,14 @@
+%h2 New Image
+= form_for [@image.album, @image] do |f|
+  = render partial: 'shared/error_messages', locals: {model: @image}
+  = f.label :name
+  = f.text_field :name, class: 'form-control'
+  = f.label :color
+  = f.text_field :color, class: 'form-control'
+  = f.label :year
+  = f.select :year, (2000..Time.now.year).to_a, :include_blank => {:year => "Select year"}, class: 'form-control'
+  = f.label :image
+  = f.file_field :image, class: 'form-control'
+  = f.label :description
+  = f.text_area :description, class: 'form-control'
+  = f.submit "Submit", class: "btn btn-primary"

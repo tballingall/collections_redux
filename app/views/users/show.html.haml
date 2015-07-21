@@ -1,0 +1,16 @@
+- provide(:title, 'User Home')
+%h5 Welcome
+= "#{@user.name}, #{@user.email}"
+= link_to 'Admin Review', images_path if @user.admin?
+%br
+%br
+= image_tag @user.image.thumb('200x200#').url if @user.image_stored?
+%br
+%p= link_to 'New Album', new_user_album_path(current_user)
+%br
+%br
+%h5 Your Albums
+- @user.albums.each do |album|
+  = div_for(album) do
+    = link_to album.name, album
+    = image_tag album.thumb_url
