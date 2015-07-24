@@ -1,5 +1,15 @@
 #
-class Image < ActiveRecord::Base
+class Image
+  include Mongoid::Document
+  extend Dragonfly::Model
+  field :name, type: String
+  field :album_id, type: Integer
+  field :year, type: Integer
+  field :color, type: String
+  field :description, type: String
+  field :image_uid, type: String
+  field :image_name, type: String
+  field :flagged, type: Boolean, default: false
   dragonfly_accessor :image
   belongs_to :album
   delegate :user, to: :album

@@ -1,5 +1,17 @@
 #
-class User < ActiveRecord::Base
+class User
+  include Mongoid::Document
+  include ActiveModel::SecurePassword
+  extend Dragonfly::Model
+  field :name, type: String
+  field :email, type: String
+  field :password_digest, type: String
+  field :created_at, type: DateTime
+  field :updated, type: DateTime
+  field :image_uid, type: String
+  field :image_name, type: String
+  field :album_uid, type: String
+  field :admin, type: Boolean, default: false
   has_secure_password
   has_many :albums
   has_many :images

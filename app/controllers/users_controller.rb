@@ -1,7 +1,6 @@
 #
 class UsersController < ApplicationController
   before_action :require_login, except: [:new, :create, :index, :show]
-  # a.savebefore_action :find_user, only: [:edit, :update]
   before_action :ensure_current_user, only: [:edit, :udpate]
   include ProfileHelper
 
@@ -20,7 +19,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:user_id] = @user.id
+      session[:user_id] = @user.id.to_s
       flash[:success] = 'Signed Up'
       redirect_to @user
     else

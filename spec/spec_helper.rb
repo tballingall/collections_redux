@@ -1,3 +1,4 @@
+require 'rails/mongoid'
 require 'simplecov'
 
 SimpleCov.start do

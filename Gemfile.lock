@@ -120,6 +120,10 @@ GEM
       moped (~> 2.0.0)
       origin (~> 2.1)
       tzinfo (>= 0.3.37)
+    mongoid-rspec (2.1.0)
+      mongoid (~> 4.0.0)
+      rake
+      rspec (~> 3.1)
     moped (2.0.6)
       bson (~> 3.0)
       connection_pool (~> 2.0)
@@ -169,6 +173,10 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
+    rspec (3.2.0)
+      rspec-core (~> 3.2.0)
+      rspec-expectations (~> 3.2.0)
+      rspec-mocks (~> 3.2.0)
     rspec-core (3.2.3)
       rspec-support (~> 3.2.0)
     rspec-expectations (3.2.1)
@@ -204,7 +212,6 @@ GEM
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
-    spring (1.3.6)
     sprockets (3.2.0)
       rack (~> 1.0)
     sprockets-rails (2.3.2)
@@ -229,6 +236,9 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
     will_paginate (3.0.7)
+    will_paginate_mongoid (2.0.1)
+      mongoid
+      will_paginate (~> 3.0)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -238,6 +248,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootstrap-sass
+  bson (~> 3.1.2)
   byebug
   capybara
   coffee-rails (~> 4.1.0)
@@ -249,6 +260,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   mongoid (~> 4.0.0)
+  mongoid-rspec (~> 2.1.0)
   poltergeist
   rack-cache
   rack_session_access (= 0.1.1)
@@ -257,8 +269,8 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simplecov
-  spring
   sqlite3
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
   will_paginate (~> 3.0.5)
+  will_paginate_mongoid

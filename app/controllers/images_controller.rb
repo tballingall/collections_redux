@@ -32,6 +32,7 @@ class ImagesController < ApplicationController
   end
 
   def cover
+    # @image = @album.images.find(params[:id])
     album.update_attributes(cover: image)
     redirect_to album_path(album)
   end
@@ -56,9 +57,9 @@ class ImagesController < ApplicationController
     @_image ||= Image.find(params[:id])
   end
 
-  def user
-    album.user
-  end
+  # def user
+  #   album.user
+  # end
 
   def image_params
     params.require(:image).permit(:name, :description, :year, :color, :image)

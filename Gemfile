@@ -37,7 +37,10 @@ gem 'bootstrap-sass'
 # image processing
 gem 'dragonfly', '~> 1.0.10'
 gem 'rack-cache', require: 'rack/cache'
+
+# DB
 gem "mongoid", "~> 4.0.0"
+gem 'bson', '~> 3.1.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger
@@ -49,12 +52,14 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the
   # background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  # gem 'spring'
 
   # Gemfile for Rails 3+, Sinatra, or Merb
   gem 'will_paginate', '~> 3.0.5'
+  gem "will_paginate_mongoid"
 
   gem 'rspec-rails', '~> 3.2.1'
+  gem 'mongoid-rspec', '~> 2.1.0'
 end
 
 group :test do

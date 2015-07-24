@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
   def create
     if authenticatable?
-      session[:user_id] = user.id
+      session[:user_id] = user.id.to_s
       redirect_to user, notice: 'Logged in!'
     else
       flash.now.alert = 'Invalid email or password'
@@ -27,6 +27,6 @@ class SessionsController < ApplicationController
   end
 
   def user
-    @user ||= User.find_by_email(params[:user][:email])
+    @user ||= User.where(email: params[:user][:email]).first
   end
 end

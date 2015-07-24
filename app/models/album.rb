@@ -1,9 +1,12 @@
 #
-class Album < ActiveRecord::Base
+class Album
+  include Mongoid::Document
+  field :name, type: String
+  field :user_id, type: String
+  field :image_id, type: String
   belongs_to :user
-  belongs_to :cover, class_name: :Image, foreign_key: 'image_id'
+  belongs_to :cover, class_name: "Image"
   has_many :images
-
   delegate :thumb_url, to: :cover, allow_nil: true
 
   validates :name,
